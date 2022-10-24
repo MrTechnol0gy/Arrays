@@ -24,7 +24,13 @@ namespace Arrays
             
             ShowHud();
             Fire();
-            //RangeCheckAmmo();
+            Fire();
+            Fire();
+            Fire();
+            Fire();
+            Fire();
+            Fire();
+            RangeCheckAmmo(ammo);
             ShowHud();
 
             Console.ReadKey(true);
@@ -42,11 +48,11 @@ namespace Arrays
             ammo[0]--;
 
         }
-        static void RangeCheckAmmo()
-        {
-            foreach (var ammo in ammo)
+        static void RangeCheckAmmo(int[] ammo)
+        {            
+            for ( ; ammo[0] < 0; )
             {
-
+                ammo[0] = 0;
             }
         }
         
