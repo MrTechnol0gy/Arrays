@@ -23,6 +23,9 @@ namespace Arrays
             Console.WriteLine();
             
             ShowHud();
+            Fire();
+            //RangeCheckAmmo();
+            ShowHud();
 
             Console.ReadKey(true);
         }
@@ -30,16 +33,21 @@ namespace Arrays
         {
             Console.WriteLine();
             Console.WriteLine("The current weapon is: " + weapon[0]);
-            Console.WriteLine("Pistol: " + ammo[0] + " Shotgun: " + ammo[1] + " Laser: " + ammo[2] + " Spreader: " + ammo[3] + " Rocket Launcher: " + ammo[4]);
-            Fire(ammo);
-            Console.WriteLine(ammo[0]);
+            Console.WriteLine("Pistol: " + ammo[0] + " Shotgun: " + ammo[1] + " Laser: " + ammo[2] + " Spreader: " + ammo[3] + " Rocket Launcher: " + ammo[4]);            
             Console.WriteLine();
         }
-        static void Fire(int[] ammo)
+        static void Fire()
         {
             Console.WriteLine();
             ammo[0]--;
 
+        }
+        static void RangeCheckAmmo()
+        {
+            foreach (var ammo in ammo)
+            {
+
+            }
         }
         
     }
