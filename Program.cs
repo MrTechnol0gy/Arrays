@@ -13,24 +13,22 @@ namespace Arrays
         //2 spreader
         //3 laser
         //4 rocket launcher
-
-        static int[] ammo = new int[] {6, 2, 50, 25, 1}; //array of integers; declaration
-        
-        static string[] weapon = new string[] { "Pistol", "Shotgun", "Spreader", "Laser", "Rocket Launcher" };
+        static int weapon;
+        static int[] ammo = new int[] {6, 2, 25, 50, 1};
+        static int[] ammoMax = new int[] { 6, 2, 25, 50, 1 };
+                            
+        static string[] weaponNames = new string[] {"Pistol", "Shotgun", "Spreader", "Laser", "Rocket Launcher"};
         static void Main(string[] args)
         {
+            weapon = 0;     //this tells the array what index value to use       
             Console.WriteLine("Arrays:");
             Console.WriteLine();
-            
+                        
             ShowHud();
-            Fire();
-            Fire();
-            Fire();
-            Fire();
-            Fire();
-            Fire();
-            Fire();
+            Fire();            
             RangeCheckAmmo(ammo);
+            ShowHud();
+            Reload();
             ShowHud();
 
             Console.ReadKey(true);
@@ -38,22 +36,26 @@ namespace Arrays
         static void ShowHud()
         {
             Console.WriteLine();
-            Console.WriteLine("The current weapon is: " + weapon[0]);
+            Console.WriteLine("The current weapon is: " + weaponNames[weapon]);
             Console.WriteLine("Pistol: " + ammo[0] + " Shotgun: " + ammo[1] + " Laser: " + ammo[2] + " Spreader: " + ammo[3] + " Rocket Launcher: " + ammo[4]);            
             Console.WriteLine();
         }
         static void Fire()
         {
             Console.WriteLine();
-            ammo[0]--;
+            ammo[weapon] = ammo[weapon] - 1;
 
         }
         static void RangeCheckAmmo(int[] ammo)
         {            
-            for ( ; ammo[0] < 0; )
+            for ( ; ammo[weapon] < 0; )
             {
-                ammo[0] = 0;
+                ammo[weapon] = 0;
             }
+        }
+        static void Reload()
+        {
+            ammo[weapon] = ammoMax[weapon];
         }
         
     }
